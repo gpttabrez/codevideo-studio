@@ -1,0 +1,32 @@
+{
+  "name": "@codevideo/render-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsup src/index.ts --format esm --platform node --target node22 --out-dir dist --clean",
+    "test": "vitest run src",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "tsc --noEmit -p tsconfig.json",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "dependencies": {
+    "@codevideo/animation-engine": "workspace:*",
+    "@codevideo/project-schema": "workspace:*",
+    "@codevideo/python-renderer": "workspace:*",
+    "@codevideo/render-jobs": "workspace:*",
+    "@codevideo/shared": "workspace:*",
+    "bullmq": "^6.7.8",
+    "ioredis": "^6.1.0",
+    "playwright": "^1.65.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.3",
+    "vitest": "^5.1.1"
+  }
+}
